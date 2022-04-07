@@ -19,8 +19,8 @@ from django.db import transaction
 from .models import Task
 from .forms import PositionForm
 
-def index(request):
-    return HttpResponse("hi",index)
+def home(request):
+    return render(request,'base/home.html')
 
 class CustomLoginView(LoginView):
     template_name = 'base/login.html'
