@@ -19,7 +19,7 @@ from .forms import PositionForm
 
 
 class CustomLoginView(LoginView):
-    template_name = 'login.html'
+    template_name = 'base/login.html'
     fields = '__all__'
     redirect_authenticated_user = True
 
@@ -28,7 +28,7 @@ class CustomLoginView(LoginView):
 
 
 class RegisterPage(FormView):
-    template_name = 'register.html'
+    template_name = 'base/register.html'
     form_class = UserCreationForm
     redirect_authenticated_user = True
     success_url = reverse_lazy('tasks')
@@ -67,7 +67,7 @@ class TaskList(LoginRequiredMixin, ListView):
 class TaskDetail(LoginRequiredMixin, DetailView):
     model = Task
     context_object_name = 'task'
-    template_name = 'task.html'
+    template_name = 'base/task.html'
 
 
 class TaskCreate(LoginRequiredMixin, CreateView):
