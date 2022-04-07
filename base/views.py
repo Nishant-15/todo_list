@@ -1,4 +1,6 @@
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
+
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
@@ -17,6 +19,8 @@ from django.db import transaction
 from .models import Task
 from .forms import PositionForm
 
+def index(request):
+    return HttpResponse("hi",index)
 
 class CustomLoginView(LoginView):
     template_name = 'base/login.html'
@@ -105,5 +109,3 @@ class TaskReorder(View):
                 self.request.user.set_task_order(positionList)
 
         return redirect(reverse_lazy('tasks'))
-
-#done
